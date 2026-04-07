@@ -124,3 +124,54 @@ section {
   height: auto;
   aspect-ratio: 1;
 }
+
+/* Missions */
+.missions {
+  padding: var(--section-padding);
+  justify-content: center;
+}
+
+.missions__inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.missions__accroche {
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.5;
+  color: var(--color-text);
+  margin-bottom: 4rem;
+}
+
+.missions__accroche strong {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.missions__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.missions__item {
+  text-align: center;
+}
+
+.missions__separator {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-accent);
+  margin: 0 auto 1.25rem;
+}
+
+.missions__keyword {
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
