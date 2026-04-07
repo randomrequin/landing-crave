@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Satoshi';
   src: url('../fonts/Satoshi-Bold.woff2') format('woff2');
   font-weight: 700;
@@ -43,6 +51,24 @@ section {
   align-items: center;
 }
 
+/* Gradient stripe */
+.gradient-stripe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 200;
+  background: linear-gradient(90deg, #2D4A34, #3A5A40, #5A8A62, #8BB896, #3A5A40);
+  background-size: 300% 100%;
+  animation: gradient-slide 8s linear infinite;
+}
+
+@keyframes gradient-slide {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
 /* Navigation */
 .nav {
   position: fixed;
@@ -76,109 +102,127 @@ section {
   opacity: 1;
 }
 
+/* Geometric background */
+.geometric-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* Hero */
 .hero {
   padding: var(--section-padding);
   padding-top: 8rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero__content {
-  max-width: 600px;
+  max-width: 550px;
 }
 
 .hero__title {
+  font-family: 'Clash Display', var(--font-family);
   font-weight: 700;
-  font-size: clamp(4rem, 10vw, 8rem);
-  letter-spacing: 0.05em;
-  line-height: 0.95;
+  font-size: clamp(5rem, 12vw, 10rem);
+  letter-spacing: 0.08em;
+  line-height: 0.9;
   color: var(--color-text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero__tagline {
   font-weight: 700;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
   color: var(--color-accent);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   line-height: 1.3;
 }
 
 .hero__baseline {
   font-weight: 400;
-  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: var(--color-text);
-  opacity: 0.7;
-  line-height: 1.6;
-  max-width: 480px;
-}
-
-.hero__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.hero__visual canvas {
-  width: 100%;
+  opacity: 0.55;
+  line-height: 1.7;
   max-width: 500px;
-  height: auto;
-  aspect-ratio: 1;
 }
 
-/* Missions */
-.missions {
+/* Missions intro */
+.missions-intro {
   padding: var(--section-padding);
-  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
-.missions__inner {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
+.missions-intro__content {
+  max-width: 550px;
 }
 
-.missions__accroche {
+.missions-intro__accroche {
   font-weight: 400;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.5;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.4;
   color: var(--color-text);
-  margin-bottom: 4rem;
 }
 
-.missions__accroche strong {
+.missions-intro__accroche strong {
   font-weight: 700;
   color: var(--color-accent);
 }
 
-.missions__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+/* Piliers */
+.pilier {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+  min-height: 70vh;
 }
 
-.missions__item {
-  text-align: center;
+.pilier__content {
+  max-width: 450px;
 }
 
-.missions__separator {
+.pilier__number {
   display: block;
-  width: 40px;
-  height: 3px;
-  background-color: var(--color-accent);
-  margin: 0 auto 1.25rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: 1rem;
 }
 
-.missions__keyword {
+.pilier__title {
+  font-family: 'Clash Display', var(--font-family);
   font-weight: 700;
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   color: var(--color-text);
-  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.pilier__desc {
+  font-weight: 400;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--color-text);
+  opacity: 0.6;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.pilier__detail {
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+  color: var(--color-accent);
+  opacity: 0.7;
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-accent);
 }
 
 /* Contact */
@@ -186,6 +230,8 @@ section {
   padding: var(--section-padding);
   background-color: var(--color-accent);
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .contact__inner {
@@ -196,11 +242,13 @@ section {
 }
 
 .contact__accroche {
+  font-family: 'Clash Display', var(--font-family);
   font-weight: 700;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--color-bg);
   margin-bottom: 3rem;
   line-height: 1.1;
+  letter-spacing: 0.02em;
 }
 
 .contact__details {
@@ -249,8 +297,8 @@ section {
 /* Scroll animations */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fade-in.visible {
@@ -272,9 +320,12 @@ section {
     padding: 1rem 2rem;
   }
 
+  .geometric-bg {
+    width: 100vw;
+    opacity: 0.3;
+  }
+
   .hero {
-    grid-template-columns: 1fr;
-    gap: 2rem;
     padding-top: 6rem;
   }
 
@@ -287,17 +338,12 @@ section {
     max-width: 100%;
   }
 
-  .hero__visual {
-    max-height: 300px;
+  .pilier {
+    min-height: 60vh;
   }
 
-  .hero__visual canvas {
-    max-width: 300px;
-  }
-
-  .missions__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 1.5rem;
+  .missions-intro__accroche br {
+    display: none;
   }
 
   .contact__details {
@@ -311,12 +357,7 @@ section {
     --section-padding: 3rem 1.5rem;
   }
 
-  .missions__grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .missions__accroche br {
+  .missions-intro__accroche br {
     display: none;
   }
 }

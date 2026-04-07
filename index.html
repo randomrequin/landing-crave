@@ -20,38 +20,56 @@
     <a href="#contact" class="nav__link">Contact</a>
   </nav>
 
+  <div class="gradient-stripe"></div>
+
+  <canvas id="geometric-canvas" class="geometric-bg"></canvas>
+
   <section id="hero" class="hero">
     <div class="hero__content">
       <h1 class="hero__title">CRAVE</h1>
-      <p class="hero__tagline fade-in">J'interviens la ou vos outils s'arretent.</p>
-      <p class="hero__baseline fade-in">Structurer vos donnees, automatiser vos taches repetitives, creer ce qui n'existe pas sur le marche.</p>
-    </div>
-    <div class="hero__visual">
-      <canvas id="geometric-canvas"></canvas>
+      <p class="hero__tagline fade-in">J'interviens là où vos outils s'arrêtent.</p>
     </div>
   </section>
 
-  <section id="missions" class="missions">
-    <div class="missions__inner">
-      <p class="missions__accroche fade-in">Entre les ERP rigides et les plateformes IA surdimensionnees,<br><strong>un besoin subsiste.</strong></p>
-      <div class="missions__grid">
-        <div class="missions__item fade-in">
-          <span class="missions__separator"></span>
-          <h3 class="missions__keyword">Conseil & Strategie</h3>
-        </div>
-        <div class="missions__item fade-in">
-          <span class="missions__separator"></span>
-          <h3 class="missions__keyword">Structuration</h3>
-        </div>
-        <div class="missions__item fade-in">
-          <span class="missions__separator"></span>
-          <h3 class="missions__keyword">Automatisation</h3>
-        </div>
-        <div class="missions__item fade-in">
-          <span class="missions__separator"></span>
-          <h3 class="missions__keyword">Outils sur mesure</h3>
-        </div>
-      </div>
+  <section id="missions-intro" class="missions-intro">
+    <div class="missions-intro__content">
+      <p class="missions-intro__accroche fade-in">Entre les ERP rigides et les plateformes IA surdimensionnées,<br><strong>un besoin subsiste.</strong></p>
+    </div>
+  </section>
+
+  <section class="pilier" data-pilier="1">
+    <div class="pilier__content fade-in">
+      <span class="pilier__number">01</span>
+      <h3 class="pilier__title">Conseil & Stratégie</h3>
+      <p class="pilier__desc">Auditer vos process, identifier vos besoins, définir une feuille de route adaptée à vos priorités.</p>
+      <p class="pilier__detail">75% des cabinets disent passer trop de temps sur l'administratif. En moyenne, un avocat ne facture que 2,9 heures par jour sur 5 possibles. Je repère les irritants, les gains rapides, et je définis une feuille de route concrète.</p>
+    </div>
+  </section>
+
+  <section class="pilier" data-pilier="2">
+    <div class="pilier__content fade-in">
+      <span class="pilier__number">02</span>
+      <h3 class="pilier__title">Structuration</h3>
+      <p class="pilier__desc">Organiser vos données et vos outils existants pour que tout soit accessible, fiable, exploitable.</p>
+      <p class="pilier__detail">Excel, Notion, logiciels métier : vos outils existent déjà. Le problème, c'est qu'ils ne se parlent pas. Je les connecte, je structure vos données, et je mets en place un système où tout est accessible, classé, exploitable.</p>
+    </div>
+  </section>
+
+  <section class="pilier" data-pilier="3">
+    <div class="pilier__content fade-in">
+      <span class="pilier__number">03</span>
+      <h3 class="pilier__title">Automatisation</h3>
+      <p class="pilier__desc">Génération de documents, relances, transferts entre outils, formulaires pré-remplis, alertes de délais.</p>
+      <p class="pilier__detail">Les cabinets qui automatisent divisent par 4 le temps passé sur la rédaction de documents. 4,5 heures par employé par semaine sont récupérables. 94% des employés disent effectuer des tâches répétitives et chronophages.</p>
+    </div>
+  </section>
+
+  <section class="pilier" data-pilier="4">
+    <div class="pilier__content fade-in">
+      <span class="pilier__number">04</span>
+      <h3 class="pilier__title">Outils sur mesure</h3>
+      <p class="pilier__desc">Créer des applications dédiées quand rien sur le marché ne correspond à votre besoin.</p>
+      <p class="pilier__detail">Les plateformes du marché imposent des licences à 5 chiffres, un déploiement en mois, et des fonctionnalités dont vous n'avez pas besoin. Ici, c'est un outil pour un besoin précis, opérationnel en jours. Hébergé en France, conforme RGPD, à un tarif proportionné à la mission.</p>
     </div>
   </section>
 
@@ -60,7 +78,7 @@
       <h2 class="contact__accroche fade-in">Parlons de votre quotidien.</h2>
       <div class="contact__details fade-in">
         <a href="tel:+33XXXXXXXXX" class="contact__item">
-          <span class="contact__label">Telephone</span>
+          <span class="contact__label">Téléphone</span>
           <span class="contact__value">+33 X XX XX XX XX</span>
         </a>
         <a href="mailto:contact@crave.fr" class="contact__item">
