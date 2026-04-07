@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #FAF8F3;
+  --color-text: #1A1A1A;
+  --color-accent: #3A5A40;
+  --color-accent-light: rgba(58, 90, 64, 0.1);
+  --font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --section-padding: 6rem 4rem;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.5;
+}
+
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+}
