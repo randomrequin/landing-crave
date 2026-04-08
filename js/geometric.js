@@ -415,6 +415,15 @@
     });
   }
 
+  // Legal toggle
+  const legalToggle = document.getElementById('legal-toggle');
+  const legalContent = document.getElementById('legal-content');
+  if (legalToggle && legalContent) {
+    legalToggle.addEventListener('click', () => {
+      legalContent.classList.toggle('open');
+    });
+  }
+
   // Nav color switch on contact section
   const nav = document.querySelector('.nav');
   const contactSection = document.getElementById('contact');
