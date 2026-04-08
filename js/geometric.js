@@ -202,11 +202,18 @@
     const centerX = width * 0.5;
     const centerY = height * 0.5;
 
-    // Color transition: vert sapin -> lighter on contact section
+    // Color transition: adapt to theme and scroll
+    const isDark = document.body.classList.contains('dark');
+    const baseR = isDark ? 107 : 58;
+    const baseG = isDark ? 158 : 90;
+    const baseB = isDark ? 116 : 64;
     const inContact = Math.max(0, (scrollProgress - 0.6) / 0.4);
-    const r = Math.round(58 + inContact * (250 - 58));
-    const g = Math.round(90 + inContact * (248 - 90));
-    const b = Math.round(64 + inContact * (243 - 64));
+    const targetR = isDark ? 200 : 250;
+    const targetG = isDark ? 210 : 248;
+    const targetB = isDark ? 200 : 243;
+    const r = Math.round(baseR + inContact * (targetR - baseR));
+    const g = Math.round(baseG + inContact * (targetG - baseG));
+    const b = Math.round(baseB + inContact * (targetB - baseB));
     const color = `rgb(${r}, ${g}, ${b})`;
 
     // Overall opacity: slightly fades in contact zone
@@ -250,14 +257,14 @@
     });
     facesWithDepth.sort((a, b) => a.avgZ - b.avgZ);
     facesWithDepth.forEach(({ indices }) => {
-      drawFace(projected, rotated, indices, color, 0.035);
+      drawFace(projected, rotated, indices, color, 0.08);
     });
 
     // Draw edges - mix of dotted and solid based on depth
     edgesWithDepth.forEach(({ a, b, avgZ }) => {
       const [x1, y1] = projected[a];
       const [x2, y2] = projected[b];
-      const depthOpacity = 0.25 + 0.75 * ((avgZ + 2) / 4);
+      const depthOpacity = 0.4 + 0.6 * ((avgZ + 2) / 4);
       const opacity = Math.max(0.1, Math.min(1, depthOpacity)) * globalOpacity;
 
       // Front edges: solid thin line, back edges: dotted
@@ -389,4 +396,37 @@
   document.querySelectorAll('.hero .fade-in').forEach((el) => {
     setTimeout(() => el.classList.add('visible'), 300);
   });
+
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      // User has a saved preference, use it
+      if (saved === 'dark') document.body.classList.add('dark');
+    } else {
+      // No preference: auto based on time (dark between 20h and 7h)
+      const hour = new Date().getHours();
+      if (hour >= 20 || hour < 7) document.body.classList.add('dark');
+    }
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  }
+
+  // Nav color switch on contact section
+  const nav = document.querySelector('.nav');
+  const contactSection = document.getElementById('contact');
+  if (nav && contactSection) {
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          nav.classList.toggle('nav--light', entry.isIntersecting);
+        });
+      },
+      { threshold: 0.3 }
+    );
+    navObserver.observe(contactSection);
+  }
 })();
