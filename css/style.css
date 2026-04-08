@@ -54,7 +54,7 @@ body.dark {
 }
 
 section {
-  min-height: 100vh;
+  min-height: 85vh;
   scroll-snap-align: start;
   display: flex;
   align-items: center;
@@ -249,7 +249,7 @@ body.dark .nav--light .nav__toggle-icon {
   padding: var(--section-padding);
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  min-height: 85vh;
 }
 
 .pilier__content {
@@ -435,7 +435,7 @@ body.dark .pilier__detail {
   }
 
   .pilier {
-    min-height: 100vh;
+    min-height: 85vh;
   }
 
   .missions-intro__accroche br {
