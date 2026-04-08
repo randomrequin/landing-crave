@@ -301,6 +301,7 @@ body.dark .nav--light .nav__toggle-icon {
   justify-content: center;
   position: relative;
   z-index: 1;
+  min-height: 100vh;
 }
 
 .contact__inner {
