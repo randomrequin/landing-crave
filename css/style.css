@@ -37,6 +37,15 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.5;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Dark mode */
+body.dark {
+  --color-bg: #141414;
+  --color-text: #F0EDE6;
+  --color-accent: #6B9E74;
+  --color-accent-light: rgba(107, 158, 116, 0.1);
 }
 
 ::selection {
@@ -87,6 +96,12 @@ section {
   font-size: 1rem;
   letter-spacing: 0.15em;
   color: var(--color-accent);
+  transition: color 0.3s ease;
+}
+
+.nav--light .nav__logo,
+.nav--light .nav__link {
+  color: var(--color-bg);
 }
 
 .nav__link {
@@ -98,8 +113,62 @@ section {
   transition: opacity 0.3s ease;
 }
 
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .nav__link:hover {
   opacity: 1;
+}
+
+.nav__toggle {
+  background: none;
+  border: 1.5px solid var(--color-text);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.nav__toggle:hover {
+  opacity: 0.8;
+}
+
+.nav__toggle-icon {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark .nav__toggle-icon {
+  background-color: transparent;
+  box-shadow: inset -4px -2px 0 0 var(--color-text);
+  border-radius: 50%;
+}
+
+.nav--light .nav__toggle {
+  border-color: var(--color-bg);
+}
+
+.nav--light .nav__toggle-icon {
+  background-color: var(--color-bg);
+}
+
+body.dark .nav--light .nav__toggle-icon {
+  background-color: transparent;
+  box-shadow: inset -4px -2px 0 0 var(--color-bg);
 }
 
 /* Geometric background */
@@ -180,7 +249,7 @@ section {
   padding: var(--section-padding);
   position: relative;
   z-index: 1;
-  min-height: 70vh;
+  min-height: 100vh;
 }
 
 .pilier__content {
@@ -251,6 +320,23 @@ section {
   letter-spacing: 0.02em;
 }
 
+.contact__cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1.5px solid var(--color-bg);
+  color: var(--color-bg);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 3rem;
+}
+
+.contact__cta:hover {
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+}
+
 .contact__details {
   display: flex;
   justify-content: center;
@@ -292,6 +378,16 @@ section {
   color: var(--color-bg);
   opacity: 0.4;
   margin-top: 2rem;
+}
+
+/* Dark mode adjustments */
+body.dark .contact {
+  background-color: #1E3A24;
+}
+
+body.dark .pilier__detail {
+  border-left-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 /* Scroll animations */
@@ -339,7 +435,7 @@ section {
   }
 
   .pilier {
-    min-height: 60vh;
+    min-height: 100vh;
   }
 
   .missions-intro__accroche br {
