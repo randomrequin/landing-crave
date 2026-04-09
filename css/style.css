@@ -460,6 +460,7 @@ body.dark .nav--light .nav__toggle-icon {
 /* Dark mode adjustments */
 body.dark .contact {
   background-color: #1E3A24;
+  --color-bg: #FAF8F3;
 }
 
 body.dark .pilier__detail {
