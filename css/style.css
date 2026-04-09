@@ -168,7 +168,16 @@ body.dark .nav__toggle-icon {
 
 body.dark .nav--light .nav__toggle-icon {
   background-color: transparent;
-  box-shadow: inset -4px -2px 0 0 var(--color-bg);
+  box-shadow: inset -4px -2px 0 0 #FAF8F3;
+}
+
+body.dark .nav--light .nav__logo,
+body.dark .nav--light .nav__link {
+  color: #FAF8F3;
+}
+
+body.dark .nav--light .nav__toggle {
+  border-color: #FAF8F3;
 }
 
 /* Geometric background */
