@@ -380,6 +380,17 @@ body.dark .nav--light .nav__toggle {
   color: var(--color-bg);
 }
 
+.contact__item--linkedin {
+  align-items: center;
+}
+
+.contact__linkedin-icon {
+  color: var(--color-bg);
+  width: 28px;
+  height: 28px;
+  transition: opacity 0.3s ease;
+}
+
 .contact__brand {
   display: block;
   font-weight: 700;
