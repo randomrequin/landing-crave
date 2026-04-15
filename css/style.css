@@ -384,6 +384,7 @@ body.dark .nav--light .nav__toggle {
 
 .contact__item--linkedin {
   align-items: center;
+  justify-content: center;
 }
 
 .contact__linkedin-icon {
