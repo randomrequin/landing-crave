@@ -1,23 +1,15 @@
 @font-face {
-  font-family: 'Clash Display';
-  src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-family: 'Space Grotesk';
+  src: url('../fonts/SpaceGrotesk-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('../fonts/Satoshi-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Satoshi';
-  src: url('../fonts/Satoshi-Regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'Inter';
+  src: url('../fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -27,7 +19,7 @@
   --color-text: #1A1A1A;
   --color-accent: #3A5A40;
   --color-accent-light: rgba(58, 90, 64, 0.1);
-  --font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --section-padding: 6rem 4rem;
 }
 
@@ -204,7 +196,7 @@ body.dark .nav--light .nav__toggle {
 }
 
 .hero__title {
-  font-family: 'Clash Display', var(--font-family);
+  font-family: 'Space Grotesk', var(--font-family);
   font-weight: 700;
   font-size: clamp(5rem, 12vw, 10rem);
   letter-spacing: 0.08em;
@@ -276,7 +268,7 @@ body.dark .nav--light .nav__toggle {
 }
 
 .pilier__title {
-  font-family: 'Clash Display', var(--font-family);
+  font-family: 'Space Grotesk', var(--font-family);
   font-weight: 700;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   color: var(--color-text);
@@ -331,7 +323,7 @@ body.dark .nav--light .nav__toggle {
 }
 
 .contact__accroche {
-  font-family: 'Clash Display', var(--font-family);
+  font-family: 'Space Grotesk', var(--font-family);
   font-weight: 700;
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--color-bg);
@@ -454,7 +446,7 @@ body.dark .nav--light .nav__toggle {
 }
 
 .contact__legal-inner h3 {
-  font-family: 'Clash Display', var(--font-family);
+  font-family: 'Space Grotesk', var(--font-family);
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
