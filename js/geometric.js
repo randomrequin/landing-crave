@@ -29,6 +29,13 @@
   let dragOffsetX = 0;
   let dragOffsetY = 0;
   let hasDragged = false;
+  let prevMouseX = 0;
+  let prevMouseY = 0;
+  let spinVelX = 0;
+  let spinVelY = 0;
+  let lastMoveTime = 0;
+  const SPIN_DECAY = 0.96;
+  const DRAG_SENSITIVITY = 0.008;
 
   function resize() {
     dpr = window.devicePixelRatio || 1;
@@ -298,11 +305,28 @@
     currentOffsetX += (targetOffsetX - currentOffsetX) * MOUSE_EASE;
     currentOffsetY += (targetOffsetY - currentOffsetY) * MOUSE_EASE;
 
+    // If dragging but mouse is stationary, fade velocity so release doesn't fling a stale value
+    if (isDragging && performance.now() - lastMoveTime > 50) {
+      spinVelX *= 0.85;
+      spinVelY *= 0.85;
+    }
+
     // Rotation speed increases slightly with scroll, pauses during drag
     if (!isDragging) {
+      // Apply residual spin velocity (inertia after release) and decay it
+      angleX += spinVelX;
+      angleY += spinVelY;
+      spinVelX *= SPIN_DECAY;
+      spinVelY *= SPIN_DECAY;
+      if (Math.abs(spinVelX) < 0.00005) spinVelX = 0;
+      if (Math.abs(spinVelY) < 0.00005) spinVelY = 0;
+
+      // Fade passive rotation while inertia is still significant
+      const inertiaMag = Math.abs(spinVelX) + Math.abs(spinVelY);
+      const passiveFade = Math.max(0, 1 - inertiaMag * 80);
       const speedMultiplier = 1 + scrollProgress * 0.5;
-      angleX += ROTATION_SPEED * 0.7 * speedMultiplier + currentOffsetY;
-      angleY += ROTATION_SPEED * speedMultiplier + currentOffsetX;
+      angleX += ROTATION_SPEED * 0.7 * speedMultiplier * passiveFade + currentOffsetY;
+      angleY += ROTATION_SPEED * speedMultiplier * passiveFade + currentOffsetX;
     }
 
     requestAnimationFrame(draw);
@@ -345,6 +369,12 @@
       dragStartY = e.clientY;
       dragAngleX = angleX;
       dragAngleY = angleY;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+      lastMoveTime = performance.now();
+      // Stop any existing inertia when grabbing
+      spinVelX = 0;
+      spinVelY = 0;
     }
   });
 
@@ -353,10 +383,19 @@
       const dx = e.clientX - dragStartX;
       const dy = e.clientY - dragStartY;
       if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged = true;
-      dragOffsetX = dx * 0.008;
-      dragOffsetY = dy * 0.008;
+      dragOffsetX = dx * DRAG_SENSITIVITY;
+      dragOffsetY = dy * DRAG_SENSITIVITY;
       angleY = dragAngleY + dragOffsetX;
       angleX = dragAngleX + dragOffsetY;
+
+      // Track per-frame velocity with exponential smoothing
+      const frameDX = (e.clientX - prevMouseX) * DRAG_SENSITIVITY;
+      const frameDY = (e.clientY - prevMouseY) * DRAG_SENSITIVITY;
+      spinVelY = spinVelY * 0.6 + frameDX * 0.4;
+      spinVelX = spinVelX * 0.6 + frameDY * 0.4;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+      lastMoveTime = performance.now();
     }
   });
 
