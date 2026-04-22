@@ -238,12 +238,12 @@ body.dark .nav--light .nav__toggle {
 }
 
 .missions-intro__content {
-  max-width: 550px;
+  max-width: 640px;
 }
 
 .missions-intro__accroche {
   font-weight: 400;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1.85rem, 3.6vw, 2.75rem);
   line-height: 1.4;
   color: var(--color-text);
 }
@@ -262,7 +262,7 @@ body.dark .nav--light .nav__toggle {
 }
 
 .pilier__content {
-  max-width: 450px;
+  max-width: 540px;
 }
 
 .pilier__number {
@@ -278,7 +278,7 @@ body.dark .nav--light .nav__toggle {
 .pilier__title {
   font-family: 'Clash Display', var(--font-family);
   font-weight: 700;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
   color: var(--color-text);
   margin-bottom: 1rem;
   line-height: 1.1;
@@ -286,19 +286,19 @@ body.dark .nav--light .nav__toggle {
 
 .pilier__desc {
   font-weight: 400;
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.3rem, 2.1vw, 1.55rem);
   color: var(--color-text);
   opacity: 0.6;
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: 1.25rem;
 }
 
 .pilier__detail {
   font-weight: 400;
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.3rem);
   color: var(--color-accent);
   opacity: 0.7;
-  line-height: 1.7;
+  line-height: 1.65;
   padding-left: 1rem;
   border-left: 2px solid var(--color-accent);
   list-style: none;
