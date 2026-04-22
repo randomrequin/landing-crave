@@ -194,9 +194,11 @@ body.dark .nav--light .nav__toggle {
 /* Hero */
 .hero {
   padding: var(--section-padding);
-  padding-top: 8rem;
   position: relative;
   z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .hero__content {
@@ -530,10 +532,6 @@ body.dark .pilier__detail {
   .geometric-bg {
     width: 100vw;
     opacity: 0.3;
-  }
-
-  .hero {
-    padding-top: 6rem;
   }
 
   .hero__content {
