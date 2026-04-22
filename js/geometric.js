@@ -7,7 +7,7 @@
   const ctx = canvas.getContext('2d');
 
   const DOT_SPACING = 4;
-  const ROTATION_SPEED = 0.003;
+  const ROTATION_SPEED = 0.0015;
   const MOUSE_INFLUENCE = 0.015;
   const MOUSE_EASE = 0.05;
 
